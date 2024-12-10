@@ -133,4 +133,11 @@ def extract_answers(request):
 #def show_exam_result(request, course_id, submission_id):
 
 
+class Question(models.Model):
+    course = models.ForeignKey(Course, on_delete=models.CASCADE)
+    content = models.CharField(max_length=200)
+    grade = models.IntegerField(default=50)
+
+    def __str__(self):
+        return "Question: " + self.content
 
